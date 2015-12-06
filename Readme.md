@@ -1,19 +1,24 @@
 # Avant toute chose !
 
 Pour plus de simplicité, ce projet est proposé avec Stack, un bootstrapper de projet Haskell Cabal
-=> Pour setuper le projet (à faire une fois au début) : stack setup
-=> Pour builder le projet (à faire après chaque modification de source) : stack build
-=> Pour exécuter le binaire : stack exec fp-in-haskell-monad-exe
+* Pour setuper le projet (à faire une fois au début) : 
+	stack setup
+* Pour builder le projet (à faire après chaque modification de source) :
+	stack build
+* Pour exécuter le binaire :
+	stack exec fp-in-haskell-monad-exe
 
 Un docker file est fourni avec le projet, si vous ne voulez pas installer l'écosystème Haskell sur votre machine :
-=> Builder l'image à partir du Dockerfile : docker build -t fp .
-=> Lancer un container avec la commande : docker run -it fp
-=> Vous pouvez directement accéder au répertoire fp-in-haskell-monad, où se trouve le projet :)
+* Builder l'image à partir du Dockerfile :
+	docker build -t fp .
+* Lancer un container avec la commande :
+	docker run -it fp
+* Vous pouvez directement accéder au répertoire fp-in-haskell-monad, où se trouve le projet :)
 
 Si vous souhaitez installer les outils haskell sur votre machine :
-=> Vous pouvez installer haskell-platform à partir de brew (installe GHC et Cabal)
-=> Ensuite, vous pouvez installer stack à partir de Cabal
-=> Pour le reste, les commandes sont identiques : cloner le repository, setuper, builder et exécuter le projet !
+* Vous pouvez installer haskell-platform à partir de brew (installe GHC et Cabal)
+* Ensuite, vous pouvez installer stack à partir de Cabal
+* Pour le reste, les commandes sont identiques : cloner le repository, setuper, builder et exécuter le projet !
 
 
 # Monade
