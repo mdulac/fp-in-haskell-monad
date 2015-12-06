@@ -11,8 +11,6 @@ Nous avons déjà abordé ensemble :
 
 * la création de types simples en Haskell: Option et List
 	
-Code
-	
 	-- List
 	data List a = Cons a (List a) | Nil deriving (Show)
 
@@ -22,8 +20,6 @@ Code
 
 * le parcours purement fonctionnel d'une structure récursive
 
-Code
-
 	runThrough :: List a -> List a
 	runThrough Nil = Nil
 	runThrough (Cons h t) = runThrough t
@@ -31,8 +27,6 @@ Code
 * l'abstraction foncteur
 
 Cette abstraction nécessite l'implémentation de la fonction **map** qui applique une fonction sur l'ensemble des valeurs contenu par le type.
-
-Code
 
 	-- Exemple d'utilisation
 	map (list [1, 2, 3, 4]) (+1)
@@ -48,22 +42,16 @@ L'applicative est une spécialisation de foncteur. Elle a besoin de deux fonctio
 Grâce à cela, on peut non seulement avoir les mêmes API que le foncteur et bien d'autres encore. Le foncteur est limité à appliquer une fonction sur un ensemble d'éléments ou un ensemble de fonctions sur un seul élément.
 L'applicative lève cette contrainte en permettant l'application d'un ensemble de fonctions sur un ensemble d'éléments!
 
-Code
-
 	-- Exemple d'utilisation
 	ap (list [1, 2, 3, 4]) (list [(+1), (+2)])
 	
 Mais l'applicative a lui aussi quelques limitations. Regarder l'exemple suivant
- 	
-Code
 
 	let x = list ["123", "456"]
  	
 	let listOfChars = map x (\str -> list(lenth))
  	
 Si on s'intéresse au signature, nous avons
-
-Code
 
 	x: List String
 	
@@ -116,11 +104,11 @@ Pour rappel, un typeclass représente "l'équivalent" d'une classe abstraite en 
 
 La monade repose elle aussi sur une structure mathématique. Il y a donc des propriétés à vérifier :
 
-Law 1 : point a >>= f ≡ f a
+	Law 1 : point a >>= f ≡ f a
 
-Law 2 : m >>= point ≡ m
+	Law 2 : m >>= point ≡ m
 
-Law 3 : (m >>= f) >>= g ≡ m >>= (\x -> f x >>= g)
+	Law 3 : (m >>= f) >>= g ≡ m >>= (\x -> f x >>= g)
 
 => En posant les types sur papier, vérifiez que notre Monade List respecte bien ces lois. 
 
@@ -130,8 +118,6 @@ Law 3 : (m >>= f) >>= g ≡ m >>= (\x -> f x >>= g)
 On va créer un nouveau type nommé **Box**, possédant 2 valeurs : **Full** et **Empty**. Full représente une Box pleine (avec une valeur), et Empty une Box vide
 
 En fait, le typeclass Monade existe déjà dans Prelude (le SDK de Haskell), et se nomme **Monad** ! ;)
-
-Code
 
 	class Applicative m => Monad m where
   		(>>=)  :: m a -> (a -> m b) -> m b
@@ -147,7 +133,7 @@ Dans la définition du typeclass Monad, on aperçoit un **type constraint** sur 
 => De la même manière, pour être un Applicative, un type doit être un Functor : créez l'instance de **Functor** pour **Box**
 
 Ok, maintenant il va être possible d'écrire des expressions de ce genre :
-Full 6 >>= (\x -> Full (x + 10) >>= (\y -> Full (y + 100)))
+	Full 6 >>= (\x -> Full (x + 10) >>= (\y -> Full (y + 100)))
 
 
 ##Exo6: Do notation
@@ -156,7 +142,7 @@ On est d'accord que la syntaxe de l'exemple précédent est lourde !!
 Instancier Monad permet d'utiliser la **do notation**
 
 => Traduisez l'exemple précédent sous forme de do-notation...
-Ne regarde pas la suite, il y à la solution :)
+Ne regarde pas la suite, il y a la solution :)
 
 .
 .
@@ -237,7 +223,7 @@ Les foncteurs et les applicatives se composent bien, contrairement aux monades !
 En Haskell, les IO sont des monades et traduisent la présence d'effets de bord.
 Le prototype du main est d'ailleurs :
 
-main :: IO ()
+	main :: IO ()
 
 C'est à dire qu'il ne prends pas de paramètres et retourne un IO vide.
 Ceci permet de réaliser des effets de bord dans un programme Haskell : tout le programme se déroule dans une monade IO !
