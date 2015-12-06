@@ -247,7 +247,7 @@ La Monade Writer (Logger) va permettre de stocker une valeur, ainsi qu'une log s
 
 => Vous devez obtenir : Writer <valeur finale> <"Add 2 values | Put second value | Put first value">
 
-##Exo 10: Ouverture sur la prochaine session
+##Exo 11: Ouverture sur la prochaine session
 
 Le log du Writer n'est pas forcément une chaîne de caractères, mais peut-être n'importe quel type "assemblable".
 
