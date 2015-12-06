@@ -25,13 +25,14 @@ class Monade m where
 -- EXO 4
 instance Monade List where
 	point x = error "todo"
-	flatMap Nil f = error "todo"
-	flatMap (Cons h t) f = error "todo"
+	flatMap _ _ = error "todo"
 
 instance Monade Box where
 	point = error "todo"
-	flatMap Empty f = error "todo"
-	flatMap (Full v) f = error "todo"
+	flatMap _ _ = error "todo"
+
+-- EXO 5
+-- TODO
 
 -- EXO 9
 composeListAndBox :: List (Box a) -> (a -> b) -> List (Box b)

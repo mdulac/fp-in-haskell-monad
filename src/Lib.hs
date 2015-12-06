@@ -28,20 +28,6 @@ instance Monad List where
 
 data Box a = Full a | Empty deriving (Show, Eq)
 
-instance Functor Box where
-	fmap _ Empty = Empty
-	fmap f (Full v) = Full (f v)
-
-instance Applicative Box where
-	pure = Full
-	(<*>) Empty _ = Empty
-	(<*>) (Full f) fa = fmap f fa
-
-instance Monad Box where
-	return = Full
-	(>>=) Empty _ = Empty
-	(>>=) (Full v) f = f v
-
 list :: [a] -> List a
 list l = foldr Cons Nil l
 
