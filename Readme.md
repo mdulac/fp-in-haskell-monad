@@ -129,7 +129,7 @@ Pour rappel, un typeclass représente "l'équivalent" d'une classe abstraite en 
 => Ecrivez l'instance de Monade pour le type List
 
 
-##Exo4: Monad laws
+##Exo4 bis: Monad laws
 
 La monade repose elle aussi sur une structure mathématique. Il y a donc des propriétés à vérifier :
 
