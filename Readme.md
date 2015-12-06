@@ -20,6 +20,12 @@ Si vous souhaitez installer les outils haskell sur votre machine :
 * Ensuite, vous pouvez installer stack à partir de Cabal
 * Pour le reste, les commandes sont identiques : cloner le repository, setuper, builder et exécuter le projet !
 
+Le seul fichier à modifier est app/Main.hs, en suivant les --TODO et les numéros d'exercice. Toutefois, jeter un oeil au fichier src/Lib.hs en cas de difficulté peut-être une bonne idée ;)
+
+Pour toutes les autres questions, je suis disponible.
+
+Bon courage !!
+
 
 # Monade
 
